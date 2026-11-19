@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; https: data: blob:; connect-src https://script.google.com https://script.googleusercontent.com; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;"><meta name="referrer" content="strict-origin-when-cross-origin"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html lang="de"><head><meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; https: data: blob:; connect-src https://script.google.com https://script.googleusercontent.com https://*.workers.dev; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;"><meta name="referrer" content="strict-origin-when-cross-origin"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0909"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Baki AIO"><link rel="apple-touch-icon" href="icon.jpg">
 <!-- Baki AIO auf dem Handy (resell.py liefert sie im WLAN aus, Port 8795, mit PIN): Übersicht, Releases, Pakete, Inventar,
@@ -11,7 +11,7 @@ header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;
 header b{font-size:19px;background:linear-gradient(135deg,var(--a1),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
 header .sp{flex:1}.ib{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-size:17px}
 main{max-width:560px;margin:0 auto;padding:4px 16px calc(96px + env(safe-area-inset-bottom))}h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
-nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:grid;grid-template-columns:repeat(6,1fr);padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--card) 94%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+.ii{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:grid;grid-template-columns:repeat(7,1fr);padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--card) 94%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
 nav button{border:0;background:none;color:var(--muted);font:600 10px/1.2 inherit;padding:6px 0;display:grid;justify-items:center;gap:3px;border-radius:12px}
 nav button svg{display:block}nav button.on{color:var(--text);background:color-mix(in srgb,var(--a2) 18%,transparent)}
 .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
@@ -25,7 +25,14 @@ nav button svg{display:block}nav button.on{color:var(--text);background:color-mi
 .tag.a{background:color-mix(in srgb,var(--a2) 22%,transparent);color:var(--text)}.pos{color:var(--pos)}.neg{color:var(--neg)}.acc{color:var(--a1)}
 .btn{border:0;border-radius:12px;padding:9px 12px;font:700 13px inherit;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2) 55%,var(--a3));text-decoration:none;white-space:nowrap}
 .btn.g{background:var(--card2);color:var(--text);border:1px solid var(--line)}.acts{display:flex;gap:6px}
-.empty{color:var(--muted);text-align:center;padding:26px 10px}.search{width:100%;margin:0 0 10px}
+.empty{color:var(--muted);text-align:center;padding:26px 10px}
+nav button{position:relative;font-size:9px;letter-spacing:-.2px;min-width:0;overflow:hidden;white-space:nowrap}nav button.dot::after{content:"";position:absolute;top:5px;right:calc(50% - 15px);width:8px;height:8px;border-radius:50%;background:var(--a1)}
+.pfseg{display:flex;gap:6px;margin:0 0 10px}.pfseg button{border:1px solid var(--line);background:none;color:var(--muted);font:500 12.5px inherit;padding:5px 12px;border-radius:999px}
+.pfseg button.on{color:var(--text);border-color:var(--a1);background:color-mix(in srgb,var(--a2) 16%,transparent)}
+.row.unread b{font-weight:700}.row.read b{font-weight:500}.pfv{position:fixed;inset:0;z-index:9;background:var(--bg,#0b0b0d);display:grid;grid-template-rows:auto 1fr;padding-top:env(safe-area-inset-top)}
+.pfh{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.pfh b{display:block;font-size:15px;overflow:hidden;text-overflow:ellipsis}.pfh small{display:block;color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pfv iframe{width:100%;height:100%;border:0;background:#fff}.search{width:100%;margin:0 0 10px}
 label{display:block;font-size:13px;color:var(--muted);margin:14px 0 5px}input{width:100%;padding:13px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:16px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.big{width:100%;margin-top:20px;padding:15px;font-size:16px}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:14px;background:var(--card);border:1px solid var(--line);margin:8px 0 6px}
@@ -37,30 +44,33 @@ header{-webkit-backdrop-filter:blur(14px)}:root.light header{box-shadow:inset 0 
 .gate{max-width:360px;margin:16vh auto 0;padding:0 16px;text-align:center}.gate h1{font-size:26px;margin:0 0 6px}[hidden]{display:none!important}
 </style></head><body>
 <div class="gate" id="gate" hidden><h1><b style="background:linear-gradient(135deg,var(--a1),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent">Baki AIO</b></h1>
-<label for="gpin">PIN</label><input id="gpin" type="password" inputmode="numeric" autocomplete="off"><button class="btn big" id="gok">🔓</button><div id="gmsg" class="neg" style="margin-top:12px"></div></div>
+<label for="gpin">PIN</label><input id="gpin" type="password" inputmode="numeric" autocomplete="off"><button class="btn big" id="gok" aria-label="Entsperren"><svg class="ii" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg></button><div id="gmsg" class="neg" style="margin-top:12px"></div></div>
 <div class="gate" id="off" hidden><h1><b style="background:linear-gradient(135deg,var(--a1),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent">Baki AIO</b></h1>
 <p id="offMsg" style="color:var(--muted)"></p><button class="btn big" id="retry">↻</button></div>
 <div id="app" hidden>
 <header><b>Baki AIO</b><small id="stand" style="color:var(--muted);font-size:12px"></small><span class="sp"></span><button class="ib" id="reload" title="Neu laden" aria-label="Neu laden">↻</button></header>
 <main>
 <section data-v="home"><div class="kpis" id="kpis"></div><div id="homeInv"></div><h2>Nächste Releases</h2><div class="list" id="homeRel"></div><h2>Pakete unterwegs</h2><div class="list" id="homePc"></div></section>
+<section data-v="pf" hidden><input class="search" id="pfQ" type="search" placeholder="Suchen …"><div class="pfseg" id="pfSeg"><button data-c="" class="on">Posteingang</button><button data-c="werbung">Werbung</button><button data-c="spam">Spam</button></div><div class="list" id="pfList"></div></section>
 <section data-v="rel" hidden><div class="list" id="relList"></div></section>
 <section data-v="pc" hidden><div class="list" id="pcList"></div></section>
-<section data-v="mail" hidden><button class="btn big" id="scan" style="margin:6px 0 14px">🔍 Gmail nach Einladungen durchsuchen</button><div id="scanMsg" class="empty" hidden></div><div class="list" id="mailList"></div></section>
+<section data-v="mail" hidden><button class="btn big" id="scan" style="margin:6px 0 14px"><svg class="ii" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg> Gmail nach Einladungen durchsuchen</button><div id="scanMsg" class="empty" hidden></div><div class="list" id="mailList"></div></section>
 <section data-v="inv" hidden><input class="search" id="invQ" type="search" placeholder="Suchen …"><div class="list" id="invList"></div></section>
 <section data-v="add" hidden>
-<div class="seg" id="addSeg"><button type="button" data-a="buy" class="on">Einkauf</button><button type="button" data-a="photo">📷 In-hand</button></div>
+<div class="seg" id="addSeg"><button type="button" data-a="buy" class="on">Einkauf</button><button type="button" data-a="photo"><svg class="ii" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg> In-hand</button></div>
 <form id="f"><label for="a">Artikel</label><input id="a" list="names" required autocomplete="off"><datalist id="names"></datalist>
 <div class="two"><div><label for="n">Anzahl</label><input id="n" type="number" min="1" value="1" inputmode="numeric"></div><div><label for="e">EK je Stück (€)</label><input id="e" inputmode="decimal" placeholder="0,00"></div></div>
 <label for="d">Kaufdatum</label><input id="d" type="date"><label for="o">Notiz</label><input id="o" placeholder="Shop, Bestellnummer"><button class="btn big">Eintragen</button></form>
 <form id="pf" hidden><label for="pa">Artikel</label><input id="pa" list="names" required autocomplete="off">
-<label class="shot" for="pi"><b>📷</b>Foto aufnehmen oder wählen</label><input id="pi" type="file" accept="image/*" multiple hidden>
+<label class="shot" for="pi"><b><svg class="ii" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></b>Foto aufnehmen oder wählen</label><input id="pi" type="file" accept="image/*" multiple hidden>
 <div class="thumbs" id="pt"></div><button class="btn big" id="ps">Senden</button></form><div id="msg"></div>
 </section>
 </main>
-<nav id="nav"><button data-n="home" class="on"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Start</button><button data-n="rel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Releases</button><button data-n="pc"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>Pakete</button><button data-n="mail"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Einladungen</button><button data-n="inv"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Inventar</button><button data-n="add"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Erfassen</button></nav>
+<div class="pfv" id="pfView" hidden><div class="pfh"><button class="btn g" id="pfBack" aria-label="Zurück">←</button><div><b id="pfS"></b><small id="pfM"></small></div></div><iframe id="pfF" title="Mail" sandbox="allow-popups allow-popups-to-escape-sandbox"></iframe></div>
+<nav id="nav"><button data-n="home" class="on"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Start</button><button data-n="pf" id="navPf"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5.5 5h13L21 13v6H3v-6z"/></svg>Postfach</button><button data-n="rel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Releases</button><button data-n="pc"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>Pakete</button><button data-n="mail"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Einladungen</button><button data-n="inv"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Inventar</button><button data-n="add"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Erfassen</button></nav>
 </div>
 <script>
+const IC={search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',cam:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',box:'<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>'},ic=k=>`<svg class="ii" viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const money=x=>(x<0?"-":"")+Math.abs(+x||0).toFixed(2).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g,".")+" €";
 const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
@@ -103,12 +113,12 @@ const clock=x.eql?"Ziehung "+new Date(x.eql).toLocaleTimeString("de-DE",{hour:"2
 return `<div class="row"><div class="day"><b>${d.getDate()}</b><small>${WD[d.getDay()]}</small></div><div><b>${esc(x.name)}</b><small>${esc([when,clock].filter(Boolean).join(" · "))}</small>
 <span class="tag a">${esc(x.maker||x.game)}</span>${x.eql_region?`<span class="tag a">EQL ${esc(x.eql_region)}</span>`:""}${x.profit!=null?`<span class="tag ${x.profit>=0?"pos":"neg"}">${x.profit>0?"+":""}${money(x.profit)}</span>`:""}</div>
 ${/^https:\/\//.test(x.eql_url||"")?`<a class="btn" href="${esc(x.eql_url)}" target="_blank" rel="noopener">EQL ↗</a>`:"<span></span>"}</div>`}
-function pcRow(p,i){const t=TRACK[p.carrier];return `<div class="row"><div class="pic">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.replaceWith('📦')">`:"📦"}</div>
+function pcRow(p,i){const t=TRACK[p.carrier];return `<div class="row"><div class="pic">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.outerHTML=ic('box')">`:ic("box")}</div>
 <div><b>${esc(p.name)}${+p.qty?` × ${+p.qty}`:""}${+p.more?` + ${+p.more}`:""}</b><small>${esc([p.shop,p.eta?"kommt "+p.eta:"unterwegs seit "+(p.date||"").split("-").reverse().join(".")].filter(Boolean).join(" · "))}</small>
 ${p.track?`<small>${esc((p.carrier||"").toUpperCase())} ${esc(p.track)}</small>`:""}</div><div class="acts">${p.track?`<button class="btn g" data-copy="${esc(p.track)}">⧉</button>`:""}${p.track&&t?`<a class="btn" href="${esc(t(p.track))}" target="_blank" rel="noopener">↗</a>`:""}</div></div>`}
 function invRow(g){const d=g.since?days(g.since):null;return `<div class="row"><div class="pic">${g.img?`<img src="${esc(g.img)}" alt="" loading="lazy" onerror="this.replaceWith('▦')">`:"▦"}</div>
-<div><b>${esc(g.name)}</b><small>${g.n} Stück · Ø ${money(g.ek/g.n)}${d!=null?` · liegt ${-d} Tage`:""}${g.photos?` · 📷 ${g.photos}`:""}</small></div>
-<button class="btn g" data-photo="${esc(g.name)}">📷</button></div>`}
+<div><b>${esc(g.name)}</b><small>${g.n} Stück · Ø ${money(g.ek/g.n)}${d!=null?` · liegt ${-d} Tage`:""}${g.photos?` · ${ic("cam")} ${g.photos}`:""}</small></div>
+<button class="btn g" data-photo="${esc(g.name)}" aria-label="In-hand-Foto">${ic("cam")}</button></div>`}
 function render(){if(!data)return;const s=data.stock,val=s.reduce((t,g)=>t+g.ek,0),pcs=s.reduce((t,g)=>t+g.n,0),week=data.releases.filter(r=>days(r.date)<=7);
 $("kpis").innerHTML=`<div class="kpi"><small>Inventar</small><b class="acc">${pcs} Stück</b><small>${money(val)}</small></div><div class="kpi"><small>Pakete unterwegs</small><b>${data.inbound.length}</b></div>
 <div class="kpi"><small>Releases 7 Tage</small><b>${week.length}</b></div><div class="kpi"><small>Einladungen</small><b>${data.invites.length}</b></div>`;
@@ -124,15 +134,52 @@ $("pcList").innerHTML=data.inbound.map(pcRow).join("")||`<div class="empty">Nich
 $("names").innerHTML=s.map(g=>"<option>"+esc(g.name)+"</option>").join("")}
 function renderInv(){const q=$("invQ").value.trim().toLowerCase(),l=data?data.stock.filter(g=>!q||g.name.toLowerCase().includes(q)):[];
 $("invList").innerHTML=l.map(invRow).join("")||`<div class="empty">${q?"Nichts gefunden":"Inventar ist leer"}</div>`}
-function show(v){view=v;document.querySelectorAll("main section").forEach(s=>s.hidden=s.dataset.v!==v);document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.n===v));scrollTo(0,0)}
+function show(v){view=v;if(v==="pf")pfLoad();document.querySelectorAll("main section").forEach(s=>s.hidden=s.dataset.v!==v);document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.n===v));scrollTo(0,0)}
 function addMode(m){document.querySelectorAll("#addSeg button").forEach(b=>b.classList.toggle("on",b.dataset.a===m));$("f").hidden=m!=="buy";$("pf").hidden=m!=="photo";$("msg").textContent=""}
+/* Postfach (Wunsch des Nutzers 20.11.2026, prüft Mails sehr oft am Handy): direkt vom Cloudflare-Programm, nicht über PC
+   oder Google. Adresse und Schlüssel kommen mit dem Handy-Link (#…&m=…&mk=…) und bleiben nur auf diesem Handy. */
+const PF=(()=>{const h=new URLSearchParams(location.hash.slice(1));let m=h.get("m"),k=h.get("mk");
+try{if(m&&k)localStorage.setItem("baki-pf",JSON.stringify({m,k}));else({m,k}=JSON.parse(localStorage.getItem("baki-pf")||"{}"))}catch(e){}
+return /^https:\/\/[\w.-]+\.workers\.dev$/.test(m||"")&&k?{m,k}:null})();
+const pfApi=b=>fetch(PF.m,{method:"POST",body:JSON.stringify({k:PF.k,...b})}).then(r=>r.json()).catch(()=>({error:"Keine Verbindung zum Postfach"}));
+let pfItems=[],pfSeen=new Set(),pfT=0,pfCat="";try{pfSeen=new Set(JSON.parse(localStorage.getItem("baki-pf-seen")||"[]"))}catch(e){}
+const pfWords=s=>String(s||"").replace(/=\?([^?]+)\?([BQ])\?([^?]*)\?=(?:\s+(?==\?))?/gi,(all,cs,e,t)=>{try{const b=e.toUpperCase()==="B"?atob(t):t.replace(/_/g," ").replace(/=([0-9A-F]{2})/gi,(x,h)=>String.fromCharCode(parseInt(h,16)));
+return new TextDecoder(cs).decode(Uint8Array.from(b,c=>c.charCodeAt(0)))}catch(x){return all}});
+function pfMime(raw){   /* Mail zerlegen: Teile, Base64/Quoted-Printable, Zeichensatz; HTML bevorzugt, Anhänge nicht */
+const cut=x=>{const i=x.search(/\r?\n\r?\n/);return i<0?[x,""]:[x.slice(0,i),x.slice(i).replace(/^\r?\n\r?\n/,"")]};
+const head=x=>{const o={};x.replace(/\r?\n[ \t]+/g," ").split(/\r?\n/).forEach(l=>{const i=l.indexOf(":");if(i>0)o[l.slice(0,i).toLowerCase()]=l.slice(i+1).trim()});return o};
+const dec=(b,enc,cs)=>{let s;if(enc==="base64"){s=atob(b.replace(/[^A-Za-z0-9+/=]/g,""))}else{s=b.replace(/=\r?\n/g,"").replace(/=([0-9A-F]{2})/gi,(x,h)=>String.fromCharCode(parseInt(h,16)))}
+try{return new TextDecoder(cs||"utf-8").decode(Uint8Array.from(s,c=>c.charCodeAt(0)&255))}catch(e){return s}};
+const out={};const walk=part=>{const[h,b]=cut(part),H=head(h),ct=H["content-type"]||"text/plain",cs=(/charset="?([^";\s]+)/i.exec(ct)||[])[1],bd=(/boundary="?([^";]+)"?/i.exec(ct)||[])[1];
+if(/^multipart\//i.test(ct)&&bd){b.split("--"+bd).slice(1).forEach(p=>{if(!p.startsWith("--"))walk(p.replace(/^\r?\n/,""))});return}
+if(/attachment/i.test(H["content-disposition"]||""))return;const enc=(H["content-transfer-encoding"]||"").toLowerCase(),t=/base64|quoted-printable/.test(enc)?dec(b,enc,cs):b;
+if(/^text\/html/i.test(ct)&&!out.html)out.html=t;else if(/^text\/plain/i.test(ct)&&!out.text)out.text=t};
+walk(raw);const H=head(cut(raw)[0]);out.subject=pfWords(H.subject);out.from=pfWords(H.from);return out}
+const pfTime=t=>{const d=new Date(t);return d.toDateString()===new Date().toDateString()?d.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"}):d.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit"})};
+async function pfLoad(){
+if(!PF){$("pfList").innerHTML='<div class="empty">Postfach am PC einrichten (Postfach → ⚙), dann den Handy-Link neu öffnen.</div>';return}
+const r=await pfApi({q:$("pfQ").value.trim(),cat:pfCat});if(r.error){if(view==="pf")$("pfList").innerHTML=`<div class="empty">${esc(r.error)}</div>`;return}
+pfItems=r.items||[];if(!pfCat)$("navPf").classList.toggle("dot",pfItems.some(x=>!pfSeen.has(x.id)));
+$("pfList").innerHTML=pfItems.map((x,i)=>`<div class="row nopic ${pfSeen.has(x.id)?"read":"unread"}" data-pf="${i}"><div><b>${esc(pfWords(x.subject)||"(ohne Betreff)")}</b><small>${esc(pfWords(x.sender).replace(/\s*<[^>]*>$/,"").replace(/^"|"$/g,""))} → ${esc(x.rcpt)}</small></div><small>${pfTime(x.t)}</small></div>`).join("")
+||`<div class="empty">${$("pfQ").value.trim()?"Nichts gefunden.":"Noch keine Mail."}</div>`}
+$("pfQ").oninput=()=>{clearTimeout(pfT);pfT=setTimeout(pfLoad,300)};
+$("pfSeg").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;pfCat=b.dataset.c;$("pfSeg").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));pfLoad()};
+$("pfList").onclick=async e=>{const el=e.target.closest("[data-pf]"),x=pfItems[+el?.dataset.pf];if(!x)return;
+const r=await pfApi({id:x.id});if(r.error)return alert(r.error);const m=pfMime(r.raw||"");
+pfSeen.add(x.id);try{localStorage.setItem("baki-pf-seen",JSON.stringify([...pfSeen].slice(-3000)))}catch(err){}el.classList.replace("unread","read");
+$("pfS").textContent=m.subject||pfWords(x.subject)||"(ohne Betreff)";$("pfM").textContent=`${m.from||pfWords(x.sender)} → ${x.rcpt} · ${new Date(x.t).toLocaleString("de-DE")}`;
+$("pfF").srcdoc=`<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src https: http: data:; style-src 'unsafe-inline' https:; font-src https: data:"><base target="_blank">`
++(m.html||`<pre style="white-space:pre-wrap;font:15px/1.5 system-ui;margin:14px">${esc(m.text||"")}</pre>`);$("pfView").hidden=false};
+$("pfBack").onclick=()=>{$("pfView").hidden=true;$("pfF").srcdoc="";pfLoad()};
+setInterval(()=>{if(!document.hidden&&$("pfView").hidden&&PF)pfLoad()},15e3);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&PF)pfLoad()});if(PF)pfLoad();
 $("nav").onclick=e=>{const b=e.target.closest("[data-n]");if(b)show(b.dataset.n)};$("addSeg").onclick=e=>{const b=e.target.closest("[data-a]");if(b)addMode(b.dataset.a)};
 document.addEventListener("click",e=>{const c=e.target.closest("[data-copy]"),p=e.target.closest("[data-photo]");
 if(c)copy(c.dataset.copy);if(p){show("add");addMode("photo");$("pa").value=p.dataset.photo}});
 $("invQ").addEventListener("input",renderInv);
 $("scan").onclick=async()=>{const b=$("scan"),m=$("scanMsg");b.disabled=true;b.textContent="Suche in Gmail …";m.hidden=true;
 const r=await API.scan();
-b.disabled=false;b.textContent="🔍 Gmail nach Einladungen durchsuchen";await load();
+b.disabled=false;b.innerHTML=ic("search")+" Gmail nach Einladungen durchsuchen";await load();
 m.hidden=false;m.textContent=r?(r.errors&&r.errors.length?"Fehler: "+r.errors.join(", ")+" · ":"")+"✓ "+data.invites.length+" aktive Einladung"+(data.invites.length===1?"":"en"):OFF};$("reload").onclick=()=>load().then(ok=>ok&&toast("Aktuell"));$("retry").onclick=()=>{$("offMsg").textContent="…";load()};
 $("gok").onclick=async()=>{pin=$("gpin").value.trim();if(await load()){try{localStorage.setItem("pin",pin)}catch(e){}}else $("gmsg").textContent="PIN falsch oder Baki AIO aus"};
 $("gpin").addEventListener("keydown",e=>{if(e.key==="Enter")$("gok").click()});
@@ -157,7 +204,7 @@ while(shots.length){m.className="";m.textContent="Sende "+(n+1)+" von "+all+" �
 const st=await API.photo($("pa").value.trim(),shots[0]);
 if(st!==200){m.className="neg";m.textContent=st===403?"PIN falsch":OFF;btn.disabled=false;return}
 shots.shift();n++;$("pt").innerHTML=shots.map(s=>'<img src="'+s+'" alt="">').join("")}   /* gesendete gleich raus: kein Doppeltes beim erneuten Senden */
-btn.disabled=false;m.className="pos";m.textContent="✓ "+n+" Foto"+(n>1?"s":"")+" für "+$("pa").value+" (am PC: Inventar → 📷)";load()};
+btn.disabled=false;m.className="pos";m.textContent="✓ "+n+" Foto"+(n>1?"s":"")+" für "+$("pa").value+" (am PC: Inventar → In-hand)";load()};
 if(pin||CLOUD)load().then(ok=>{if(!ok&&$("app").hidden&&!CLOUD)$("gate").hidden=false});else $("gate").hidden=false;
 setInterval(()=>{if(!document.hidden&&(pin||CLOUD)&&!$("app").hidden)load()},60e3);
 /* zurück in die App (Home-Bildschirm): gleich den neuen Stand holen */
