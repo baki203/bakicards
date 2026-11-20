@@ -26,6 +26,11 @@ nav button svg{display:block}nav button.on{color:var(--text);background:color-mi
 .btn{border:0;border-radius:12px;padding:9px 12px;font:700 13px inherit;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2) 55%,var(--a3));text-decoration:none;white-space:nowrap}
 .btn.g{background:var(--card2);color:var(--text);border:1px solid var(--line)}.acts{display:flex;gap:6px}
 .empty{color:var(--muted);text-align:center;padding:26px 10px}
+.invg{display:grid;grid-template-columns:1fr 1fr;gap:10px}.invc{position:relative;display:block;width:100%;padding:0;text-align:left;font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.invc .ip{aspect-ratio:1;background:#fff;display:grid;place-items:center}.invc .ip img{width:84%;height:84%;object-fit:contain}
+.invc .bd{padding:9px 10px 11px}.invc .t{font-weight:700;font-size:13.5px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.invc .m{color:var(--muted);font-size:12px;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bdg{position:absolute;top:8px;padding:3px 8px;border-radius:999px;font:800 11px/1.2 inherit;background:rgba(0,0,0,.72);color:#fff}.bdg.l{left:8px}.bdg.r{right:8px}.bdg.soon{color:#fbbf24}
 nav button{position:relative;font-size:9px;letter-spacing:-.2px;min-width:0;overflow:hidden;white-space:nowrap}nav button.dot::after{content:"";position:absolute;top:5px;right:calc(50% - 15px);width:8px;height:8px;border-radius:50%;background:var(--a1)}
 .pfseg{display:flex;gap:6px;margin:0 0 10px}.pfseg button{border:1px solid var(--line);background:none;color:var(--muted);font:500 12.5px inherit;padding:5px 12px;border-radius:999px}
 .pfseg button.on{color:var(--text);border-color:var(--a1);background:color-mix(in srgb,var(--a2) 16%,transparent)}
@@ -66,6 +71,7 @@ header{-webkit-backdrop-filter:blur(14px)}:root.light header{box-shadow:inset 0 
 <div class="thumbs" id="pt"></div><button class="btn big" id="ps">Senden</button></form><div id="msg"></div>
 </section>
 </main>
+<div class="pfv" id="invView" hidden style="grid-template-rows:auto 1fr"><div class="pfh"><button class="btn g" id="invBack" aria-label="Zurück">←</button><div><b id="invT"></b><small id="invM"></small></div></div><div id="invL" class="list" style="padding:12px 16px;overflow:auto;align-content:start"></div></div>
 <div class="pfv" id="pfView" hidden><div class="pfh"><button class="btn g" id="pfBack" aria-label="Zurück">←</button><div><b id="pfS"></b><small id="pfM"></small></div></div><iframe id="pfF" title="Mail" sandbox="allow-popups allow-popups-to-escape-sandbox"></iframe></div>
 <nav id="nav"><button data-n="home" class="on"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Start</button><button data-n="pf" id="navPf"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5.5 5h13L21 13v6H3v-6z"/></svg>Postfach</button><button data-n="rel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Releases</button><button data-n="pc"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>Pakete</button><button data-n="mail"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Einladungen</button><button data-n="inv"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 21H18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1M11 4h-1a2 2 0 0 0-2 2v5.5"/><rect x="11" y="2.5" width="6" height="3" rx="1"/><path d="M11.2 9.2l1.2 1.2 2.4-2.4M16 9h1.5M13 14.2l1.2 1.2 2.4-2.4"/><path d="M3 13.5l3.5-1.5 3.5 1.5v5.5L6.5 20.5 3 19z"/><path d="M3 13.5l3.5 1.5 3.5-1.5M6.5 15v5.5"/></svg>Inventar</button><button data-n="add"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Erfassen</button></nav>
 </div>
@@ -119,14 +125,20 @@ ${p.track?`<small>${esc((p.carrier||"").toUpperCase())} ${esc(p.track)}</small>`
 function invRow(g){const d=g.since?days(g.since):null;return `<div class="row"><div class="pic">${g.img?`<img src="${esc(g.img)}" alt="" loading="lazy" onerror="this.replaceWith('▦')">`:"▦"}</div>
 <div><b>${esc(g.name)}</b><small>${g.n} Stück · Ø ${money(g.ek/g.n)}${d!=null?` · liegt ${-d} Tage`:""}${g.photos?` · ${ic("cam")} ${g.photos}`:""}</small></div>
 <button class="btn g" data-photo="${esc(g.name)}" aria-label="In-hand-Foto">${ic("cam")}</button></div>`}
+/* Einladungen wie am PC (Wunsch des Nutzers 20.11.2026): je Produkt eine Kachel mit Bild, Stunden und Anzahl; Tippen zeigt die Adressen */
+const hLeft=x=>Math.max(0,Math.floor((x.until-Date.now()/1e3)/3600));
+const invGroups=()=>{const g={};for(const x of data.invites)(g[x.asin||x.title]??=[]).push(x);
+return Object.values(g).map(l=>l.sort((a,b)=>a.until-b.until)).sort((a,b)=>a[0].until-b[0].until)};
+const invCard=l=>{const x=l[0],h=hLeft(x),img=(l.find(y=>y.img)||{}).img;
+return `<button class="invc" data-invg="${esc(x.asin||x.title)}"><div class="ip">${img?`<img src="${esc(img)}" alt="" loading="lazy">`:`<span style="font-size:30px">✉</span>`}</div>
+<span class="bdg l${h<12?" soon":""}">${h} H</span>${l.length>1?`<span class="bdg r">${l.length}×</span>`:""}
+<div class="bd"><div class="t">${esc(x.title||"…")}</div><div class="m">${x.asin?esc(x.asin):""}${x.price?" · "+money(x.price):""}</div></div></button>`};
 function render(){if(!data)return;const s=data.stock,val=s.reduce((t,g)=>t+g.ek,0),pcs=s.reduce((t,g)=>t+g.n,0),week=data.releases.filter(r=>days(r.date)<=7);
 $("kpis").innerHTML=`<div class="kpi"><small>Inventar</small><b class="acc">${pcs} Stück</b><small>${money(val)}</small></div><div class="kpi"><small>Pakete unterwegs</small><b>${data.inbound.length}</b></div>
 <div class="kpi"><small>Releases 7 Tage</small><b>${week.length}</b></div><div class="kpi"><small>Einladungen</small><b>${data.invites.length}</b></div>`;
-const inv=x=>{const h=Math.max(0,Math.round((x.until-Date.now()/1e3)/3600));
-return `<div class="row"><div class="pic">${x.img?`<img src="${esc(x.img)}" alt="">`:"✉"}</div><div><b>${esc(x.title)}</b><small>${esc(x.to)} · noch ${h} h${x.price?" · "+money(x.price):""}</small></div>
-<div class="acts"><button class="btn g" data-copy="${esc(x.to)}">⧉</button>${x.asin?`<a class="btn" href="https://www.amazon.de/dp/${esc(x.asin)}" target="_blank" rel="noopener">↗</a>`:""}</div></div>`};
-$("homeInv").innerHTML=data.invites.length?`<h2>Einladungen</h2><div class="list">${data.invites.slice(0,3).map(inv).join("")}</div>`:"";
-$("mailList").innerHTML=data.invites.map(inv).join("")||`<div class="empty">Keine aktive Einladung</div>`;
+const gs=invGroups();
+$("homeInv").innerHTML=gs.length?`<h2>Einladungen</h2><div class="invg">${gs.slice(0,2).map(invCard).join("")}</div>`:"";
+$("mailList").innerHTML=gs.length?`<div class="invg">${gs.map(invCard).join("")}</div>`:`<div class="empty">Keine aktive Einladung</div>`;
 $("homeRel").innerHTML=data.releases.slice(0,4).map(relRow).join("")||`<div class="empty">Keine Releases in den nächsten Tagen</div>`;
 $("homePc").innerHTML=data.inbound.slice(0,3).map(pcRow).join("")||`<div class="empty">Nichts unterwegs</div>`;
 $("relList").innerHTML=data.releases.map(relRow).join("")||`<div class="empty">Keine Releases in den nächsten 30 Tagen</div>`;
@@ -174,6 +186,12 @@ $("pfBack").onclick=()=>{$("pfView").hidden=true;$("pfF").srcdoc="";pfLoad()};
 setInterval(()=>{if(!document.hidden&&$("pfView").hidden&&PF)pfLoad()},15e3);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&PF)pfLoad()});if(PF)pfLoad();
 $("nav").onclick=e=>{const b=e.target.closest("[data-n]");if(b)show(b.dataset.n)};$("addSeg").onclick=e=>{const b=e.target.closest("[data-a]");if(b)addMode(b.dataset.a)};
+document.addEventListener("click",e=>{const ig=e.target.closest("[data-invg]");if(ig){const l=invGroups().find(g=>(g[0].asin||g[0].title)===ig.dataset.invg)||[],x=l[0]||{};
+$("invT").textContent=x.title||"";$("invM").textContent=`${l.length} Einladung${l.length===1?"":"en"}${x.price?" · "+money(x.price):""}`;
+$("invL").innerHTML=(x.asin?`<a class="btn big" style="margin:0 0 6px;text-align:center" href="https://www.${esc(/^amazon\.[a-z.]+$/.test(x.shop||"")?x.shop:"amazon.de")}/dp/${esc(x.asin)}" target="_blank" rel="noopener">Bei Amazon öffnen ↗</a>`:"")
++l.map(y=>`<div class="row nopic"><div><b style="font-size:14px">${esc(y.to)}</b><small>noch ${hLeft(y)} h</small></div><div class="acts"><button class="btn g" data-copy="${esc(y.to)}">⧉</button></div></div>`).join("");
+$("invView").hidden=false;return}});
+$("invBack").onclick=()=>{$("invView").hidden=true};
 document.addEventListener("click",e=>{const c=e.target.closest("[data-copy]"),p=e.target.closest("[data-photo]");
 if(c)copy(c.dataset.copy);if(p){show("add");addMode("photo");$("pa").value=p.dataset.photo}});
 $("invQ").addEventListener("input",renderInv);
