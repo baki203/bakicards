@@ -121,7 +121,7 @@ return `<div class="row"><div class="day"><b>${d.getDate()}</b><small>${WD[d.get
 ${/^https:\/\//.test(x.eql_url||"")?`<a class="btn" href="${esc(x.eql_url)}" target="_blank" rel="noopener">EQL ↗</a>`:"<span></span>"}</div>`}
 function pcRow(p,i){const t=TRACK[p.carrier];return `<div class="row"><div class="pic">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.outerHTML=ic('box')">`:ic("box")}</div>
 <div><b>${esc(p.name)}${+p.qty?` × ${+p.qty}`:""}${+p.more?` + ${+p.more}`:""}</b><small>${esc([p.shop,p.eta?"kommt "+p.eta:"unterwegs seit "+(p.date||"").split("-").reverse().join(".")].filter(Boolean).join(" · "))}</small>
-${p.track?`<small>${esc((p.carrier||"").toUpperCase())} ${esc(p.track)}</small>`:""}</div><div class="acts">${p.track?`<button class="btn g" data-copy="${esc(p.track)}">⧉</button>`:""}${p.track&&t?`<a class="btn" href="${esc(t(p.track))}" target="_blank" rel="noopener">↗</a>`:""}</div></div>`}
+${p.track?`<small>${esc((p.carrier||"").toUpperCase())} ${esc(p.track)}</small>`:""}</div><div class="acts">${p.track?`<button class="btn g" data-copy="${esc(p.track)}">⧉</button>`:""}${p.url||(p.track&&t)?`<a class="btn" href="${esc(p.url||t(p.track))}" target="_blank" rel="noopener">↗</a>`:""}</div></div>`}
 function invRow(g){const d=g.since?days(g.since):null;return `<div class="row"><div class="pic">${g.img?`<img src="${esc(g.img)}" alt="" loading="lazy" onerror="this.replaceWith('▦')">`:"▦"}</div>
 <div><b>${esc(g.name)}</b><small>${g.n} Stück · Ø ${money(g.ek/g.n)}${d!=null?` · liegt ${-d} Tage`:""}${g.photos?` · ${ic("cam")} ${g.photos}`:""}</small></div>
 <button class="btn g" data-photo="${esc(g.name)}" aria-label="In-hand-Foto">${ic("cam")}</button></div>`}
